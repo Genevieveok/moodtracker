@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title> account page</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+   <div class="container">
+      <h1>Account created</h1>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+      <p class="text-center"><a href="log_in">Back to Log in page</a></p>
+    </div> 
+  </body>
+</html>
