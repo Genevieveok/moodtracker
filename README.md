@@ -5,11 +5,14 @@ A **mood tracker** is a tool that is used to keep a record of a person's mood at
 
 This web app will allow a user to record their moods at different days and times and also show them their recorded moods for the year in a grid like format.
 
+## Mood tracker concept
+![Mood tracker concept](bulletjournal.png "Mood tracker concept")
+[Reference](https://craftsonfire.com/2018/02/best-bullet-journal-mood-trackers.html)
 
 ## First draft System Design
 
 <details>
-  <summary>Details for first draft System Design</summary>
+  <summary>Details for System Design</summary>
 
 ### Functional Requirements
 - Users can log in to the web app
