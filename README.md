@@ -9,7 +9,7 @@ This web app will allow a user to record their moods at different days and times
 ## First draft System Design
 
 <details>
-  <summary>Details</summary>
+  <summary>Details for first draft System Design</summary>
 
 ### Functional Requirements
 - Users can log in to the web app
