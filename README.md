@@ -25,19 +25,27 @@ This web app will allow a user to record their moods at different days and times
 ### Capacity estimates (I don't plan for that many users)
 #### Traffic estimates:
 > 5 DAU * 1 mood board view ( fetching at most 12 months of mood data)= 5 requests per day
+
 > 5 DAU * 2 mood entries per day = 10 writes per day
+
 > 86400 seconds in a day
+
 > 5/86400 = 0.0001 requests per second
+
 > 10/86400=0.0001 writes per second
 	
 #### Bandwidth:
 > 5  request per day * 1.5MB = 7.5 MB
+
 > 86400 seconds in a day
+
 > 7.5 MB /86400 seconds=0.0001  MB per second
 	
 #### Storage:
 > 10 writes per day * 1.5MB = 15 MB per day
+
 > 365 days in a year
+
 > 15 MB * 365 * 1 year = 5475 MB
 	
 
@@ -47,14 +55,14 @@ This web app will allow a user to record their moods at different days and times
 
 ### Detailed design
 #### Web server 
-		- Apache 
-		- Serves webpages to client
-		- Currently deploying mod_wsgi on my macOS which is an apache module (mod_wsgi is an Apache module which can host any Python WSGI application, including Flask.)
+- Apache 
+- Serves webpages to client
+- Currently deploying mod_wsgi on my macOS which is an apache module (mod_wsgi is an Apache module which can host any Python WSGI application, including Flask.)
 		
 #### Application server
-		- Flask framework
-		- App server will handle read requests (mood board view) and write requests(entering mood for day) and interact with the DB
-		- App server will handle parsing and calculation of data to be shown or entered
+- Flask framework
+- App server will handle read requests (mood board view) and write requests(entering mood for day) and interact with the DB
+- App server will handle parsing and calculation of data to be shown or entered
 		
 		
 ### Database Model
@@ -78,8 +86,8 @@ This web app will allow a user to record their moods at different days and times
 
 ### Identifying and resolving bottlenecks and fault tolerance
 
-	- Sharding (horizontal partitioning) can be implemented for scalability
-	    - Multiple databases or tables for mood and users grouped by their last name value
+- Sharding (horizontal partitioning) can be implemented for scalability
+	- Multiple databases or tables for mood and users grouped by their last name value
 			E.g. User table 1 (A - M last names info), User table 2 (N - Z) last names info
 			
 	- Multiple web servers and application servers with load balancing implemented
