@@ -1,0 +1,4 @@
+SECRET_KEY = 'TEST'
+
+DEBUG = True
+SQLALCHEMY_ECHO = True
