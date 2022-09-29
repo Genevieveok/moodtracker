@@ -25,27 +25,27 @@ This web app will allow a user to record their moods at different days and times
 ### Capacity estimates (I don't plan for that many users)
 #### Traffic estimates:
 > 5 DAU * 1 mood board view ( fetching at most 12 months of mood data)= 5 requests per day
-
+> 
 > 5 DAU * 2 mood entries per day = 10 writes per day
-
+> 
 > 86400 seconds in a day
-
+> 
 > 5/86400 = 0.0001 requests per second
-
+> 
 > 10/86400=0.0001 writes per second
 	
 #### Bandwidth:
 > 5  request per day * 1.5MB = 7.5 MB
 >
 > 86400 seconds in a day
-
+> 
 > 7.5 MB /86400 seconds=0.0001  MB per second
 	
 #### Storage:
 > 10 writes per day * 1.5MB = 15 MB per day
-
+> 
 > 365 days in a year
-
+> 
 > 15 MB * 365 * 1 year = 5475 MB
 	
 
