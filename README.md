@@ -53,6 +53,8 @@ This web app will allow a user to record their moods at different days and times
 
 ![1st sys design](SD.png "Sys Design")
 
+Web application will be deployed with Elastic Beanstalk service on AWS.
+
 ### Detailed design
 #### Web server 
 - Apache 
