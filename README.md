@@ -112,7 +112,12 @@ Web application will be deployed with Elastic Beanstalk service on AWS.
 
 </details>
 
-## To run application
+## Running dev application
+
+Activate virtual environment and install requirements to get started.
+
+### To run dev Flask application 
+
 
 ```
 $ cd /path/.../moodtracker/
@@ -128,7 +133,7 @@ Press CTRL+C to quit
  * Debugger PIN: 603-926-568
 ```
 
-## To run application on top of Apache web server (mod_wsgi)
+### To run dev application on top of Apache web server (mod_wsgi)
 
 Comment out import statement in views.py and enable app creation line.
 It would now look like this:
