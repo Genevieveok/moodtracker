@@ -36,7 +36,7 @@ This web app will allow a user to record their moods at different days and times
 	
 #### Bandwidth:
 > 5  request per day * 1.5MB = 7.5 MB
-
+>
 > 86400 seconds in a day
 
 > 7.5 MB /86400 seconds=0.0001  MB per second
@@ -87,15 +87,15 @@ This web app will allow a user to record their moods at different days and times
 ### Identifying and resolving bottlenecks and fault tolerance
 
 - Sharding (horizontal partitioning) can be implemented for scalability
-	- Multiple databases or tables for mood and users grouped by their last name value
-			E.g. User table 1 (A - M last names info), User table 2 (N - Z) last names info
+    - Multiple databases or tables for mood and users grouped by their last name value. 
+    - e.g. User table 1 (A - M last names info), User table 2 (N - Z) last names info
 			
-	- Multiple web servers and application servers with load balancing implemented
-		- Some web servers have load balancers implemented, so load can be balanced by the web servers or by separte load balancers
-		- Multiple web servers will be implemented to remove single point of failure
-		- Different app servers can do different jobs instead of high latency being experienced when multiple users are using the app
-		- The LB can balance the load based on Least connection or even Round robin since all the request should take the same amount of time
+- Multiple web servers and application servers with load balancing implemented
+    - Some web servers have load balancers implemented, so load can be balanced by the web servers or by separte load balancers
+	- Multiple web servers will be implemented to remove single point of failure
+	- Different app servers can do different jobs instead of high latency being experienced when multiple users are using the app
+	- The LB can balance the load based on Least connection or even Round robin since all the request should take the same amount of time
 		
-	- Multiple Load balancers
-		- There can be an active and passive LB and the passive can take over if the active is down
-		- The load balancers would be in constant communication
+- Multiple Load balancers
+	- There can be an active and passive LB and the passive can take over if the active is down
+	- The load balancers would be in constant communication
