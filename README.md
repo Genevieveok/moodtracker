@@ -26,8 +26,7 @@ This web app will allow a user to record their moods at different days and times
 - System should be reliable
 - System should be efficient (low latency)
 
-### Capacity estimates 
-*(I don't plan for that many users)*
+### Capacity estimates *(I don't plan for that many users)*
 #### Traffic estimates:
 > 5 DAU * 1 mood board view ( fetching at most 12 months of mood data)= 5 requests per day
 > 
