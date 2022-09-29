@@ -1,0 +1,2 @@
+from moodtracker import app
+

@@ -1,8 +1,9 @@
+from moodtracker import app
 from flask import Flask
 from flask import request,render_template,redirect,url_for
  
 
-app = Flask(__name__)
+#app = Flask(__name__)
  
 
 @app.route('/')

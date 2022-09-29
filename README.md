@@ -111,3 +111,61 @@ Web application will be deployed with Elastic Beanstalk service on AWS.
 	- The load balancers would be in constant communication
 
 </details>
+
+## To run application
+
+```
+$ cd /path/.../moodtracker/
+$ python3 run.py
+
+ * Serving Flask app 'moodtracker'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 603-926-568
+```
+
+## To run application on top of Apache web server (mod_wsgi)
+
+Comment out import statement in views.py and enable app creation line.
+It would now look like this:
+```
+#from moodtracker import app
+from flask import Flask
+from flask import request,render_template,redirect,url_for
+ 
+
+app = Flask(__name__)
+```
+
+You might also need to add a new port number to the __init__.py file. 5000 could already be in use.
+
+```
+app.run(debug=True,port=80)
+```
+
+Then run views.wsgi file;
+```
+$ cd moodtracker/
+$ mod_wsgi-express start-server views.wsgi
+
+Server URL         : http://localhost:8000/
+Server Root        : /var/tmp/mod_wsgi-localhost:8000:501
+Server Conf        : /var/tmp/mod_wsgi-localhost:8000:501/httpd.conf
+Error Log File     : /var/tmp/mod_wsgi-localhost:8000:501/error_log (warn)
+Operating Mode     : daemon
+Request Capacity   : 5 (1 process * 5 threads)
+Request Timeout    : 60 (seconds)
+Startup Timeout    : 15 (seconds)
+Queue Backlog      : 100 (connections)
+Queue Timeout      : 45 (seconds)
+Server Capacity    : 20 (event/worker), 20 (prefork)
+Server Backlog     : 500 (connections)
+Locale Setting     : en_US.UTF-8
+
+```
+
+
