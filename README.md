@@ -7,6 +7,7 @@ This web app will allow a user to record their moods at different days and times
 
 ## Mood tracker concept
 ![Mood tracker concept](bulletjournal.png "Mood tracker concept")
+
 [Reference](https://craftsonfire.com/2018/02/best-bullet-journal-mood-trackers.html)
 
 ## First draft System Design
