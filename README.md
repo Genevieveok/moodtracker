@@ -5,7 +5,11 @@ A **mood tracker** is a tool that is used to keep a record of a person's mood at
 
 This web app will allow a user to record their moods at different days and times and also show them their recorded moods for the year in a grid like format.
 
+
 ## First draft System Design
+
+<details>
+  <summary>Details</summary>
 
 ### Functional Requirements
 - Users can log in to the web app
@@ -101,3 +105,5 @@ Web application will be deployed with Elastic Beanstalk service on AWS.
 - Multiple Load balancers
 	- There can be an active and passive LB and the passive can take over if the active is down
 	- The load balancers would be in constant communication
+
+</details>
