@@ -130,9 +130,9 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
  * Restarting with stat
  * Debugger is active!
- * Debugger PIN: 603-926-568
+ ...
 ```
 
-It might also be possible to run application on top of Apache web server (mod_wsgi). I tested this out earlier before the application got complex.
+It might also be possible to run application on top of Apache web server (mod_wsgi). I tested this out much earlier in the development process.
 
 
