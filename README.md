@@ -101,7 +101,7 @@ Web application will be deployed with Elastic Beanstalk service on AWS.
     - e.g. User table 1 (A - M last names info), User table 2 (N - Z) last names info
 			
 - Multiple web servers and application servers with load balancing implemented
-    - Some web servers have load balancers implemented, so load can be balanced by the web servers or by separte load balancers
+    - Some web servers have load balancers implemented, so load can be balanced by the web servers or by separate load balancers
 	- Multiple web servers will be implemented to remove single point of failure
 	- Different app servers can do different jobs instead of high latency being experienced when multiple users are using the app
 	- The LB can balance the load based on Least connection or even Round robin since all the request should take the same amount of time
