@@ -1,16 +1,43 @@
-<html>
-  <head>
-    <title> account page</title>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html' %}
+{% block othercss %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href='static/css/create.css' />
+{% endblock %}
+ 
 
-  </head>
-  <body>
-   <div class="container">
-      <h1>Account created</h1>
-      {% if error %}
+
+{% block main %}
+<div class="login-form">
+    <form action="" method="post">
+        <h2 class="text-center">Create Account</h2>       
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" name="username" required="required" value="{{
+                request.form.username }}">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" name="password" required="required" value="{{
+                request.form.password }}">
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Email" name="email" required="required" value="{{
+              request.form.email }}">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Names" name="names" required="required" value="{{
+            request.form.names }}">
+    </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block" >Create account</button>
+        </div>
+ 
+    </form>
+    {% if error %}
         <p class="error"><strong>Error:</strong> {{ error }}
-      {% endif %}
+    {% endif %} 
+    {% if msg %}
+        <p > {{ msg }}
+    {% endif %}
       <p class="text-center"><a href="log_in">Back to Log in page</a></p>
-    </div> 
-  </body>
-</html>
+
+</div>
+{% endblock %}

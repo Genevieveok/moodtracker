@@ -4,4 +4,4 @@ from moodtracker import mood_app
 app = mood_app()
 
 #run app
-app.run()
+app.run(debug=True)
