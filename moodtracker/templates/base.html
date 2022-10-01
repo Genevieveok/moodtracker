@@ -15,11 +15,15 @@
     <title>MoodTracker</title>
 </head>
 
+
 {% block style %}
 {% endblock %}
 
 <body>
 {% include 'flash.html' %}<!-- include any relevant messages -->
+<div class="col-md-12 text-right">
+    <a href="log_out" class="btn btn-primary">Logout</a>
+    </div>
 {% block main %}
 {% endblock %}
 

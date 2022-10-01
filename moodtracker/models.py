@@ -12,7 +12,18 @@ class User(db.Model):
     created = db.Column(db.DateTime, nullable=False)
     names = db.Column(db.String(120), nullable=False)
     password = db.Column(db.String(10), nullable=False)
+
+    def is_active(self):   
+        return True           
     
+    def get_id(self):         
+        return str(self.id)
+
+    def is_authenticated(self):
+        return True
+
+    def is_anonymous(self):
+        return False    
 
     def __repr__(self):
         return "<User {}>".format(self.username)
