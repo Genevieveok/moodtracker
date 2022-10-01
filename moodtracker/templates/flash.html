@@ -1,0 +1,16 @@
+<!-- {% for message in get_flashed_messages() %}
+<h2 class="alert alert-info">{{ message }}</h2>
+{% endfor %} -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+
+    {% for category, message in messages %}
+        {% if category == 'error' %}
+        <h2 class="alert alert-error">{{ message }}</h2>
+        {% else  %}
+        <h2 class="alert alert-info">{{ message }}</h2>
+        {% endif %}
+    {% endfor %}
+ 
+  {% endif %}
+{% endwith %}

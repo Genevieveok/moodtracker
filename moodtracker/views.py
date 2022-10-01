@@ -1,7 +1,7 @@
 #from moodtracker import app
 from flask import current_app as app
 from flask import Flask
-from flask import request,render_template,redirect,url_for, make_response
+from flask import request,render_template,redirect,url_for, make_response, flash
 from datetime import datetime as dt
  
 from .models import db, User
@@ -30,7 +30,9 @@ def log_in():
     if request.method == 'POST':
         if request.form['username'] != 'admin' or request.form['password'] != 'admin':
             error = 'Invalid Credentials. Please try again.'
+            flash('Login not successful',category='error')
         else:
+            
             return redirect(url_for('home'))
     return render_template('login.html', error=error)
 

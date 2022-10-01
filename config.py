@@ -18,7 +18,7 @@ db_name = 'mood.db'
 class Config:
 
 
-    SECRET_KEY = environ.get('SECRET_KEY')
+    SECRET_KEY = environ.get('SECRET_KEY') or os.urandom(24)
     FLASK_APP = environ.get('FLASK_APP')
     FLASK_ENV = environ.get('FLASK_ENV')
 
