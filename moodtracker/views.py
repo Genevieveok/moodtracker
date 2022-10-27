@@ -113,15 +113,72 @@ def delete_user():
     db.session.commit()
     return user + " deleted!"
 
+@app.route('/del2')
+def delete_cm():
+    """ Personal function for deleting cm from database"""
+    user = 4
+    db.session.query(CollectiveMood).filter(CollectiveMood.userid==user).delete()
+    db.session.commit()
+    return str(user) + " deleted!"
+
 @app.route('/view_mood')
 @login_required
 def view_mood():
-    return "view mood"
+    error = None
+    userid = current_user.get_id()
+    data = CollectiveMood.query.get(userid)
+    dicts={}
+    
+    if data:
+        datastring = data.allmood.split('|')
+        datastring.pop()
+        if datastring:
+            for arr in datastring:
+                newdatastring = arr.split(';')
+                dicts[newdatastring[2]+newdatastring[1]] = newdatastring[0]
+
+    else:
+        error = "No mood data exists"
+        flash('No mood exists',category='error')
+    
+    return render_template('viewmood.html', val=dicts,error = error)
+
+    
 
 @app.route('/enter_mood')
 @login_required
 def enter_mood():
-    print("Mood entered")
+    #print("Mood entered")
+    userid = current_user.get_id()
+    usermood = CollectiveMood.query.get(userid)
+    mood = "red"
+    day = dt.now().strftime("%d")
+    month = dt.now().strftime("%b")
+
+
+    if not usermood:
+        # value = {"mood":mood,"day":day,"month":month}
+        # value = "mood:'{}',day:{},month:'{}'".format(mood, day, month)
+        # value = "{"+value+"}"
+        value = mood+";"+day+";"+month+"|";
+        moods= CollectiveMood(
+            userid = userid,
+            allmood = str(value),
+        )
+        db.session.add(moods)  
+        db.session.commit()
+        return redirect(url_for('view_mood'))
+
+
+
+    if userid and mood and day and month:
+        # value = "mood:{},day:{},month:{}".format(mood, day, month)
+        # value = {"mood":mood,"day":day,"month":month}
+        # value = ";{"+value+"}"
+        value = mood+";"+day+";"+month+"|";
+        usermood.allmood = usermood.allmood+value
+        db.session.commit()  
+    
     return redirect(url_for('view_mood'))
 
 @app.route('/test', methods=['GET'])
