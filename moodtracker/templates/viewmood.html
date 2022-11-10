@@ -13,7 +13,23 @@
 
 
 {% set val = val %}
+<br>
+<div class="d-flex justify-content-center">
+<img id="currentPhoto" src="static/img/moods.png" alt="mood diagram" width="370" height="90">
+</div>
+<br>
+<div class="d-flex justify-content-center">
+
+  <p class="text-center"><a href="enter_mood">Enter Mood for today></a></p>
+</div>
+
+<div class="d-flex justify-content-center">
+ 
+  
 <div class="grid-container">
+ 
+    
+  
     
   
     <div class="item2" style="background-color: #bbb;"></div>
@@ -137,8 +153,7 @@
 <div class="item1" style="background-color:{{val["Feb27"]}};"></div>
 <div class="item1" style="background-color:{{val["Feb28"]}};"></div>
 <div class="item1" style="background-color:{{val["Feb29"]}};"></div>
-<div class="item1" style="background-color:{{val["Feb30"]}};"></div>
-<div class="item1" style="background-color:{{val["Feb31"]}};"></div>
+
 
 </div>
 <div class="grid-containercols">
@@ -208,7 +223,7 @@
   <div class="item1" style="background-color:{{val["Apr28"]}};"></div>
   <div class="item1" style="background-color:{{val["Apr29"]}};"></div>
   <div class="item1" style="background-color:{{val["Apr30"]}};"></div>
-  <div class="item1" style="background-color:{{val["Apr31"]}};"></div>
+  
 
 </div>
 <div class="grid-containercols">
@@ -278,7 +293,7 @@
   <div class="item1" style="background-color:{{val["Jun28"]}};"></div>
   <div class="item1" style="background-color:{{val["Jun29"]}};"></div>
   <div class="item1" style="background-color:{{val["Jun30"]}};"></div>
-  <div class="item1" style="background-color:{{val["Jun31"]}};"></div>
+  
 
 </div>
 <div class="grid-containercols">
@@ -383,7 +398,7 @@
   <div class="item1" style="background-color:{{val["Sep28"]}};"></div>
   <div class="item1" style="background-color:{{val["Sep29"]}};"></div>
   <div class="item1" style="background-color:{{val["Sep30"]}};"></div>
-  <div class="item1" style="background-color:{{val["Sep31"]}};"></div>
+  
 
 </div>
 <div class="grid-containercols">
@@ -452,7 +467,7 @@
   <div class="item1" style="background-color:{{val["Nov28"]}};"></div>
   <div class="item1" style="background-color:{{val["Nov29"]}};"></div>
   <div class="item1" style="background-color:{{val["Nov30"]}};"></div>
-  <div class="item1" style="background-color:{{val["Nov31"]}};"></div>
+ 
                                                                 
 
 </div>
@@ -528,5 +543,6 @@
 
 
     </div>
-
+  </div>
+  <br>
 {% endblock %}

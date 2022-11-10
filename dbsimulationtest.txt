@@ -1,0 +1,2 @@
+"red;26;Oct|green;25;Jun|yellow;29;Feb|red;27;Oct|blue;02;Aug|green;07;Sep|red;07;Mar|red;27;Feb|blue;03;Dec|red;26;Nov|yellow;18;Oct|red;09;Mar|blue;14;Jul|orange;15;Jun|green;17;Apr|green;05;Jan|yellow;31;Dec|red;13;Jan|"
+

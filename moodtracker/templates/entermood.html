@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block othercss %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href='static/css/entermood.css' />
+{% endblock %}
+ 
+
+
+{% block main %}
+<br>
+<div class="d-flex justify-content-center">
+    <h2 style="color: #585858;">Today is {{ today }}</h2>
+    
+   
+</div>
+<div class="d-flex justify-content-center">
+<h5 style="color: #585858;">Please select your mood for today!</h5>
+</div>
+<div class="d-flex justify-content-center">
+<h6 style="color: #585858;">Click how you feel below</h6>
+</div>
+<br>
+<div class="d-flex justify-content-center">
+
+<form method="post" >
+    <!-- <div class="btn-group"> -->
+    <button class="buttonred" type="submit" name="submit_button" value="red" style="  height:140px; width:140px; padding: 0" name="submit_button"><img src="static/img/verysad.png" height="60" width="60" >
+    <button class="buttonorange" type="submit" name="submit_button" value="orange" style=" height:140px; width:140px;  padding:0"name="submit_button" ><img src="static/img/sad.png" height="60" width="60">
+    <button class="buttonyellow" type="submit" name="submit_button" value="yellow" style="  height:140px; width:140px;  padding:0" name="submit_button"><img src="static/img/meh.png" height="60" width="60">
+    <button class="buttongreen" type="submit" name="submit_button" value="green"  style="  height:140px; width:140px; padding:0" name="submit_button" ><img src="static/img/happy.png" height="60" width="60">
+    <button class="buttonblue" type="submit" name="submit_button" value="blue"style="  height:140px; width:140px; padding:0"name="submit_button" ><img src="static/img/veryhappy.png" height="60" width="60">
+    <!-- </div> -->
+</form>
+
+</div>
+<br>
+
+<div class="d-flex justify-content-center">
+{% if error %}
+    <p class="error"><strong>Error:</strong> {{ error }}
+{% endif %} 
+{% if msg %}
+    <p > {{ msg }}
+{% endif %}
+</div>
+        
+
+<div class="d-flex justify-content-center">
+
+    <p class="text-center"><a href="view_mood">View Moodboard></a></p>
+</div>
+
+
+
+
+
+{% endblock %}

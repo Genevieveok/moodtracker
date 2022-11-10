@@ -6,8 +6,11 @@ from flask_login import (current_user, LoginManager,
                              login_user, logout_user,
                              login_required)
 from datetime import datetime as dt
+from flask_mail import Mail, Message
+mail = Mail(app)
  
 from .models import db, User, CollectiveMood, Mood
+
 #app = Flask(__name__)
  
 login_manager = LoginManager()
@@ -74,8 +77,8 @@ def create_acc():
 @app.route('/home')
 @login_required
 def home():
-    error = None
-    return render_template('options.html', error=error)
+    
+    return redirect(url_for('view_mood'))
  
 
 @app.route('/log_in', methods=['GET', 'POST'])
@@ -103,7 +106,10 @@ def log_out():
 
 @app.route('/forgot_pass')
 def forgot_pass():
-    pass
+    # msg = Message('Hello', sender = '', recipients = [''])
+    # msg.body = "This is the email body"
+    # mail.send(msg)
+    return "sent"
 
 @app.route('/del')
 def delete_user():
@@ -115,7 +121,7 @@ def delete_user():
 
 @app.route('/del2')
 def delete_cm():
-    """ Personal function for deleting cm from database"""
+    """ Personal function for deleting collective mood from database"""
     user = 4
     db.session.query(CollectiveMood).filter(CollectiveMood.userid==user).delete()
     db.session.commit()
@@ -129,7 +135,13 @@ def view_mood():
     data = CollectiveMood.query.get(userid)
     dicts={}
     
+    #for testing
+    # f = open('dbsimulationtest.txt', 'r')
+    # content = f.read()
+    # data = content
+
     if data:
+        # datastring = data.split('|') #for testing
         datastring = data.allmood.split('|')
         datastring.pop()
         if datastring:
@@ -145,41 +157,55 @@ def view_mood():
 
     
 
-@app.route('/enter_mood')
+@app.route('/enter_mood',methods=['GET', 'POST'])
 @login_required
 def enter_mood():
     #print("Mood entered")
-    userid = current_user.get_id()
-    usermood = CollectiveMood.query.get(userid)
-    mood = "red"
     day = dt.now().strftime("%d")
     month = dt.now().strftime("%b")
+    year = dt.now().strftime("%Y")
+    error = None
+    today = f"{month} {day} {year}"
+
+    if request.method == 'POST':
+        print("heres")
+        labelid = request.form['submit_button'] 
+        userid = current_user.get_id()
+        usermood = CollectiveMood.query.get(userid)
+        mood = labelid
+        msg=None
+        # msg = "Thanks for entering your mood!"
+        print(labelid)
+
+        if not usermood:
+            # value = {"mood":mood,"day":day,"month":month}
+            # value = "mood:'{}',day:{},month:'{}'".format(mood, day, month)
+            # value = "{"+value+"}"
+            value = mood+";"+day+";"+month+"|";
+            moods= CollectiveMood(
+                userid = userid,
+                allmood = str(value),
+            )
+            db.session.add(moods)  
+            db.session.commit()
+            #return redirect(url_for('view_mood'))
+            flash('Mood entered for today!')
+            return render_template('entermood.html', msg =msg, today = today, error = error)
 
 
-    if not usermood:
-        # value = {"mood":mood,"day":day,"month":month}
-        # value = "mood:'{}',day:{},month:'{}'".format(mood, day, month)
-        # value = "{"+value+"}"
-        value = mood+";"+day+";"+month+"|";
-        moods= CollectiveMood(
-            userid = userid,
-            allmood = str(value),
-        )
-        db.session.add(moods)  
-        db.session.commit()
-        return redirect(url_for('view_mood'))
 
-
-
-    if userid and mood and day and month:
-        # value = "mood:{},day:{},month:{}".format(mood, day, month)
-        # value = {"mood":mood,"day":day,"month":month}
-        # value = ";{"+value+"}"
-        value = mood+";"+day+";"+month+"|";
-        usermood.allmood = usermood.allmood+value
-        db.session.commit()  
-    
-    return redirect(url_for('view_mood'))
+        if userid and mood and day and month:
+            # value = "mood:{},day:{},month:{}".format(mood, day, month)
+            # value = {"mood":mood,"day":day,"month":month}
+            # value = ";{"+value+"}"
+            value = mood+";"+day+";"+month+"|";
+            usermood.allmood = usermood.allmood+value
+            db.session.commit()  
+            flash('Mood entered for today!')
+        
+        #return redirect(url_for('view_mood'))
+        return render_template('entermood.html', msg =msg, today = today, error = error)
+    return render_template('entermood.html', today = today, error = error)
 
 @app.route('/test', methods=['GET'])
 def user_info():
