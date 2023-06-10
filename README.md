@@ -136,3 +136,16 @@ Press CTRL+C to quit
 It might also be possible to run application on top of Apache web server (mod_wsgi). I tested this out much earlier in the development process.
 
 
+## Current Look - Running on local with Flask
+
+### Log In page
+![Log In Page](login.png "Log in page")
+
+### Mood Display Page
+![Mood Display Page](moodview.png "mood display page")
+
+### Mood Entry Page
+![Mood Entry Page](moodentry.png "mood entry page")
+
+### Mood Entry Page
+![Mood Entry Page](moodentry2.png "mood entry page")
