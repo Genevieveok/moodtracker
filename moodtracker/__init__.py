@@ -27,11 +27,11 @@ def mood_app():
     #create main application
     app = Flask(__name__, instance_relative_config=False)
     app.config.from_object('config.Config')
-    app.config['MAIL_SERVER']='smtp.gmail.com'
+    app.config['MAIL_SERVER']='smtp.mail.yahoo.com'#'smtp.gmail.com'
     app.config['MAIL_PORT'] = 465
-    app.config['MAIL_USERNAME'] = ''
-    app.config['MAIL_PASSWORD'] = ''
-    app.config['MAIL_USE_TLS'] = False
+    app.config['MAIL_USERNAME'] = 'genevieve.okon@rocketmail.com'
+    app.config['MAIL_PASSWORD'] = 'ncwfqhrugaoqvfbk'
+    # app.config['MAIL_USE_TLS'] = False
     app.config['MAIL_USE_SSL'] = True
 
     #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_name

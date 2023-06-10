@@ -1,0 +1,6 @@
+<p>Hello {{username}},</p>
+
+<p>You are requesting that a new password be generated for your account. If you made this request, then please click this link: <a href={{ url_for('verify_reset_token', token=token, _external=True) }}><strong>reset password</strong></a>. If you did not make this request, then you can simply ignore this email.</p>
+
+<p>Thanks,</p>
+<p>Moodtracker team</p>
